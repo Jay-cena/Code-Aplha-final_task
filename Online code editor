@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Code Editor</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #editor {
+      height: 400px;
+      width: 100%;
+    }
+
+    #output {
+      height: 200px;
+      width: 100%;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+    }
+
+    #run-btn {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="editor" contenteditable="true"></div>
+  <button id="run-btn">Run</button>
+  <iframe id="output"></iframe>
+
+  <script>
+    var editor = document.getElementById("editor");
+    var runBtn = document.getElementById("run-btn");
+    var output = document.getElementById("output");
+
+    runBtn.addEventListener("click", function() {
+      var code = editor.innerText;
+      output.srcdoc = code;
+    });
+  </script>
+</body>
+</html>
